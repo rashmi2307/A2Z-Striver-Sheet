@@ -1,0 +1,13 @@
+n = 5
+i = 5
+while i>0:
+  j = 1
+  while j <=n-i:
+    print(" ", end="")
+    j = j+1
+  k = 1
+  while k <=2*i-1:
+    print("*", end="")
+    k = k+1
+  print()
+  i = i-1
