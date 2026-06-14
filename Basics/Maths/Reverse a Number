@@ -1,0 +1,13 @@
+# Reverse a number
+
+# You are given an integer n. Return the integer formed by placing the digits of n in reverse order.
+
+n = 1200 #1001
+rev = 0
+if n == 0:
+  print(0)
+else:
+  while n!=0:
+    rev = rev*10 + n%10
+    n = n//10
+  print(rev)
