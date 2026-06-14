@@ -1,0 +1,25 @@
+# Check if the Number is Armstrong
+
+# You are given an integer n. You need to check whether it is an armstrong number or not. Return true if it is an armstrong number, otherwise return false.
+
+# An armstrong number is a number which is equal to the sum of the digits of the number, raised to the power of the number of digits.
+
+
+n = 153
+number_to_process = n
+original_number = n
+count = 0
+armstrong_sum = 0
+if n == 0:
+  print(True)
+else:
+  while n!=0:
+    n = n//10
+    count = count+1
+  print(count)
+  digit_count = count
+  while count!=0:
+    armstrong_sum = armstrong_sum + (number_to_process%10)**digit_count
+    count = count-1
+    number_to_process = number_to_process//10
+  print(armstrong_sum==original_number)
