@@ -1,0 +1,25 @@
+# GCD of Two Numbers
+
+# You are given two integers n1 and n2. You need find the Greatest Common Divisor (GCD) of the two given numbers. Return the GCD of the two numbers.
+
+# The Greatest Common Divisor (GCD) of two integers is the largest positive integer that divides both of the integers.
+
+n1 = 12
+n2 = 8
+candidate = min(n1,n2)
+while candidate >=1:
+  if n1%candidate ==0 and n2%candidate ==0:
+    print(candidate)
+    break
+  else:
+    candidate = candidate -1
+
+
+# Euclidean Algorithm
+n1 = 18
+n2 = 12
+while n2 !=0:
+  remainder = n1%n2
+  n1 = n2
+  n2 = remainder
+print(n1)
