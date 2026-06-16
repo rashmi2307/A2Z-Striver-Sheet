@@ -1,0 +1,38 @@
+# Check if String is Palindrome or Not
+
+# Given a string s, return true if the string is palindrome, otherwise false.
+
+# A string is called palindrome if it reads the same forward and backward.
+
+
+# Expected Solution: Recursion
+class Solution:    
+    def palindromeCheck(self, s):
+        #your code goes here
+        p1 = 0
+        p2 = len(s)-1
+        def helper(left,right):
+            if left >= right:
+                return True
+            if s[left]!=s[right]:
+                return False
+            return helper(left+1,right-1)
+        return helper(p1,p2)
+sol = Solution()
+sol.palindromeCheck("adffhfdba")
+
+
+# Optimal Solution: Two Pointer
+class Solution:    
+    def palindromeCheck(self, s):
+        #your code goes here
+        p1 = 0
+        p2 = len(s)-1
+        while p1<p2:
+            if s[p1]!=s[p2]:
+                return False
+            p1+=1
+            p2-=1
+        return True
+sol = Solution()
+sol.palindromeCheck("abcdcba")
