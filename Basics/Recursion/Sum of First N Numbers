@@ -1,0 +1,12 @@
+# Sum of First N Numbers
+
+# Given an integer N, return the sum of first N natural numbers. Try to solve this using recursion.
+
+class Solution:
+    def NnumbersSum(self, N):
+        #your code goes here
+        if N == 0:
+            return 0
+        return N + self.NnumbersSum(N-1)
+sol = Solution()
+sol.NnumbersSum(5)
