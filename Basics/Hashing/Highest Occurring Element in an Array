@@ -1,0 +1,38 @@
+# Given an array nums of n integers, find the most frequent element in it i.e., the element that occurs the maximum number of times. If there are multiple elements that appear a maximum number of times, find the smallest of them.
+
+
+# Unsorted list
+class Solution:
+    def mostFrequentElement(self, nums):
+        freq = {}
+        for num in nums:
+            if num in freq:
+                freq[num] +=1
+            else:
+                freq[num] = 1
+        best_number = nums[0]
+        best_frequency = freq[nums[0]]
+        for number,frequency in freq.items():
+            if frequency > best_frequency:
+                best_frequency = frequency
+                best_number = number
+            elif frequency == best_frequency and number < best_number:
+                best_number = number
+        return best_number
+
+
+# Sorted List
+class Solution: 
+    def mostFrequentElement(self, nums): 
+        freq = {} 
+        for num in nums: 
+            if num in freq: 
+                freq[num] +=1 
+            else: 
+                freq[num] = 1 
+        high = 0 
+        for h in freq.values(): 
+            if h>high: 
+                high = h 
+        key = next(k for k, v in freq.items() if v == high) 
+        return key
