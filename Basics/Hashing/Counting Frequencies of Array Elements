@@ -1,0 +1,20 @@
+# Given an array nums of size n which may contain duplicate elements.
+
+# Return a list of pairs where each pair contains a unique element from the array and its frequency in the array.
+
+# You may return the result in any order, but each element must appear exactly once in the output.
+
+
+class Solution:
+    def countFrequencies(self, nums):
+        # Your code goes here
+        freq = {}
+        answer = []
+        for num in nums:
+            if num in freq:
+                freq[num] +=1
+            else:
+                freq[num] = 1
+        for key,value in freq.items():
+            answer.append([key, value])
+        return answer
