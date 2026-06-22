@@ -51,3 +51,41 @@ class Solution:
 # Optimal Solution
 # Time Complexity: O(n) where n is the length of the input array
 # Space Complexity: O(n) as we are using a dictionary to store the sum and its index
+
+
+# 1. Add current element to running sum.
+
+# 2. If currentSum == k:
+#       subarray from 0 to current index is valid.
+
+# 3. Compute:
+#       required = currentSum - k
+
+# 4. If required has been seen before:
+#       a valid subarray exists ending here.
+
+# 5. Calculate its length using:
+#       current index - first occurrence index
+
+# 6. Update maximum length.
+
+# 7. Store currentSum in hashmap
+#       ONLY if it has not been seen before.
+
+class Solution:
+    def longestSubarray(self, nums, k):
+        sumz = 0
+        length = 0
+        hashmap = {}
+        for i in range(len(nums)):
+            sumz = sumz + nums[i]
+            if sumz == k:
+                length = max(length, i+1)
+            required = sumz - k
+            if required in hashmap:
+                length = max(length, i - hashmap[required])
+            if sumz not in hashmap:
+                hashmap[sumz] = i
+        return length
+
+                
