@@ -17,6 +17,7 @@
 
 # Brute Force Solution
 # Time Complexity: O(n) where n is the length of the input array
+# Space Complexity: O(1) as we are using only constant space to store the counts
 class Solution:
     def sortZeroOneTwo(self, nums):
         n = len(nums)
