@@ -30,3 +30,14 @@ class Solution:
                     return [i,j]
                 
 
+# Time Complexity: O(n) where n is the length of the input array.
+# Space Complexity: O(n) as we are using a dictionary to store the seen elements
+from git import List
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        seen = {}
+        for i , num in enumerate(nums):
+            complement = target - num
+            if complement in seen:
+                return seen[complement], i
+            seen[num] = i
