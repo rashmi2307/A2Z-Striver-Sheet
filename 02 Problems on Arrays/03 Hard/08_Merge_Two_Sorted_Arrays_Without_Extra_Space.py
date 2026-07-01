@@ -40,3 +40,24 @@ class Solution:
             nums1[k] = nums2[j]
             j -= 1
             k -= 1
+
+
+
+# Without Extra Space
+class Solution:
+    def merge(self, nums1, m, nums2, n):
+        i = 0
+        j = 0
+        while i < m and j < n:
+            if nums1[i] > nums2[j]:
+                nums1.insert(i, nums2[j])
+                i += 1
+                j += 1
+                m += 1
+                print(i,j,m, nums1)
+            else:
+                i += 1
+                print(i,j,m, nums1)
+        while j < n:
+            nums1.extend([nums2[j]])
+            j += 1
