@@ -40,7 +40,9 @@ class Solution:
 
 
 # Better Approach:
-# Time Complexity: O(n) - We are using a single loop to iterate through the array
+# Time Complexity: O(2*n) - where N is the size of the array. 
+# This is because we are iterating through the array once to build the hash array and then iterating through the hash array to find the repeating and missing numbers.
+# Space Complexxity : O(n) - We are using an additional array of size n+1 to store the count of each number in the input array.
 class Solution:
     def findMissingRepeatingNumbers(self, nums):
         n = len(nums)
@@ -60,3 +62,6 @@ class Solution:
                 break
 
         return [repeating, missing]
+    
+
+
