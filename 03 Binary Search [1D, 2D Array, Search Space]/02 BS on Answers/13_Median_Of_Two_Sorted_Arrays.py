@@ -1,0 +1,60 @@
+# Given two sorted arrays arr1 and arr2 of size m and n respectively, return the median of the two sorted arrays.
+
+# The median is defined as the middle value of a sorted list of numbers. In case the length of the list is even, the median is the average of the two middle elements.
+
+# Example 1
+# Input: arr1 = [2, 4, 6], arr2 = [1, 3, 5]
+# Output: 3.5
+# Explanation: The array after merging arr1 and arr2 will be [ 1, 2, 3, 4, 5, 6 ]. As the length of the merged list is even, the median is the average of the two middle elements. Here two medians are 3 and 4. So the median will be the average of 3 and 4, which is 3.5.
+
+# Example 2
+# Input: arr1 = [2, 4, 6], arr2 = [1, 3]
+# Output: 3.0
+# Explanation: The array after merging arr1 and arr2 will be [ 1, 2, 3, 4, 6 ]. The median is simply 3.
+
+
+
+
+
+# Brute Force Approach:
+# Time Complexity: O(m+n) - We are merging two sorted arrays into one sorted array
+# Space Complexity: O(m+n) - We are using extra space to store the merged array.
+from ast import List
+class Solution:
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+        m, n = len(nums1), len(nums2)
+        final = []
+        i, j = 0, 0
+        
+        while i < m and j < n:
+            if nums1[i] <= nums2[j]:
+                final.append(nums1[i])
+                i += 1
+            else:
+                final.append(nums2[j])
+                j += 1
+
+        while i < m:
+            final.append(nums1[i])
+            i += 1
+
+        while j < n:
+            final.append(nums2[j])
+            j += 1
+
+        k = len(final)
+
+        if k == 1:
+            return final[0]
+            
+        if k % 2 == 0:
+            return (final[k//2] + final[k//2-1])/2
+        else:
+            return final[k//2]
+        
+
+
+
+# Optimized Approach:
+# Time Complexity: O(log(min(m,n))) - We are performing binary search on the smaller array to find the correct partition. The binary search will take log(min(m,n)) time, where m and n are the sizes of the two arrays.
+# Space Complexity: O(1) - We are not using any extra space.
