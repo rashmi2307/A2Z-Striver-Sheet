@@ -25,3 +25,20 @@
 
 
 
+
+
+
+class Solution:
+    def removeOuterParentheses(self, s: str) -> str:
+        result = ""
+        counter = 0
+        for i in s:
+            if i == "(":
+                counter += 1
+                if counter > 1:
+                    result += i
+            else:
+                counter -= 1
+                if counter > 0:
+                    result += i
+        return result
